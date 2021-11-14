@@ -1,0 +1,169 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  .label {
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.71;
+    letter-spacing: -0.25px;
+    color: $black-100;
+    margin-left: 8px;
+
+    span:last-child {
+      margin-left: 8px;
+      font-size: 12px;
+      line-height: 1.5;
+      letter-spacing: -0.24px;
+      color: $black-90;
+    }
+    &-bottom {
+      display: flex;
+      margin: 0 8px;
+      font-size: 12px;
+      line-height: 1.5;
+      letter-spacing: -0.24px;
+      color: $black-90;
+      align-items: center;
+      &-error {
+        color: $fire-engeine-red-40;
+      }
+      &-double {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      &-right {
+        align-items: center;
+        display: flex;
+        justify-content: end;
+      }
+    }
+  }
+  .info {
+    margin: 2px 0 0 4px;
+  }
+  .dropdown {
+    min-width: 16px;
+    min-height: 16px;
+    position: relative;
+    color: transparent;
+    margin-left: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 20px;
+    z-index: 1;
+  }
+
+  .dropdown:hover .dropdown-content {
+    cursor: pointer;
+    display: block;
+    background-image: url("../../assets/inputsIcons/hepsiburada_logo.png");
+    height: 16px;
+    min-width: 16px;
+  }
+
+  .input-container {
+    position: relative;
+    background-color: $black-10;
+    margin: 10px 0;
+    width: 328px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    align-items: center;
+    display: flex;
+    transition: all 0.8s ease;
+    border: solid 2px transparent;
+
+    .leftIcon {
+      margin: auto 0 auto 16px;
+      cursor: pointer;
+    }
+    .clearIcon,
+    .errorIcon {
+      position: absolute;
+      top: auto;
+      right: 24px;
+      cursor: pointer;
+      z-index: 2;
+    }
+    &:hover {
+      border: 2px solid $black-40;
+    }
+    &-focus {
+      border: 2px solid $orange;
+      &:hover {
+        border: 2px solid $orange;
+      }
+    }
+    &-error {
+      border: 2px solid $fire-engeine-red-40;
+      background-color: #fef2f2;
+      color: $fire-engeine-red-40;
+    }
+    &-filled {
+      background-color: $white;
+      border: 2px solid $black-40;
+    }
+    &-large {
+      height: 56px;
+    }
+    &-default {
+      height: 48px;
+    }
+    &-small {
+      height: 40px;
+    }
+  }
+  .input {
+    width: 228px;
+    height: 24px;
+    border-radius: 8px;
+    background-color: $black-10;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    color: $black-60;
+    align-items: center;
+    line-height: 1.5;
+    letter-spacing: -0.32px;
+    border: 1px solid transparent;
+    &:focus {
+      outline: none;
+    }
+    &-filled {
+      color: $black-100;
+      font-weight: 500;
+      background-color: $white;
+    }
+    &-error {
+      background-color: #fef2f2;
+      color: $fire-engeine-red-40;
+    }
+    &-large {
+      margin: 0 16px;
+      font-size: 16px;
+    }
+    &-default {
+      margin: 0 12px;
+      font-size: 16px;
+    }
+    &-small {
+      font-size: 14px;
+      margin: 0 8px;
+      line-height: 1.71;
+      letter-spacing: -0.28px;
+    }
+  }
+}
