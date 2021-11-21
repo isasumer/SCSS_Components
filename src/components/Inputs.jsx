@@ -1,25 +1,41 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/components/Inputs.scss";
 import selectbox from "../assets/inputsIcons/selectbox.png";
 import info from "../assets/inputsIcons/info.png";
 
-const Inputs = ({ data }) => {
-  console.log("render");
-
+const Inputs = ({ data, setFilterData }) => {
   const [focus, setFocus] = useState(false);
   const [filled, setFilled] = useState(false);
   const [error, setError] = useState(false);
-  console.log(focus);
-  console.log(filled);
-  console.log(error);
-
+  const [innerText, setInnerText] = useState("");
+  const [code, setCode] = useState();
+  const [dialCode, setDialCode] = useState("");
+  useEffect(() => {
+    async function getCountryCodes() {
+      let url = "https://countriesnow.space/api/v0.1/countries/codes";
+      try {
+        let res = await fetch(url);
+        const response = await res.json();
+        setCode(response.data);
+      } catch (error) {
+        console.log("Couldn't get codes:", error);
+      }
+    }
+    getCountryCodes();
+  }, []);
   const handleOnChange = (event) => {
     event.preventDefault();
-    let innerText = event.target.value;
+    // if (data[7].type === "tr-input" && innerText.length === 2) {
+    //   console.log(event.target.value.length);
+    //   let manipulatedData = event.target.value;
+    //   setInnerText("(" + manipulatedData + ")");
+    // } else {
+    setInnerText(event.target.value);
+    setFilterData(event.target.value);
 
     innerText ? setFilled(true) : setFilled(false);
 
-    if (innerText.length > 11) {
+    if (event.target.value.length > 15) {
       setError(true);
       setFilled(false);
     } else {
@@ -28,15 +44,15 @@ const Inputs = ({ data }) => {
   };
 
   const handleOnFocus = (props) => {
-    console.log("handleOnFocus");
     setFocus(props);
   };
 
   const handleOnBlur = (props) => {
-    console.log("handleOnBlur");
     setFocus(props);
   };
-
+  const handleClearInnerText = (item) => {
+    setInnerText(item);
+  };
   return (
     <div className="container">
       {data.map((item) => (
@@ -70,37 +86,51 @@ const Inputs = ({ data }) => {
             ) : (
               item.tr && (
                 <div className="dropdown">
-                  <div
-                    style={{
-                      backgroundImage: `url(${item.tr})`,
-                      heigth: "100%",
-                    }}
-                  >
-                    isa
+                  {dialCode ? (
+                    <div style={{ color: "#9b9b9b", width: "80px" }}>
+                      {dialCode}
+                    </div>
+                  ) : (
+                    <div style={{ display: "flex" }}>
+                      <img src={item.tr} alt={"tr"} />
+                      <img src={selectbox} alt="select" />
+                      <div style={{ color: "#9b9b9b" }}>+90</div>
+                    </div>
+                  )}
+                  <div className="dropdown-content">
+                    <select
+                      name="dial-code"
+                      onChange={(e) => setDialCode(e.target.value)}
+                    >
+                      {code?.map((item) => (
+                        <option value={item.dialCode} key={item.code}>
+                          {item.code + " " + item.dial_code}
+                        </option>
+                      ))}
+                    </select>
                   </div>
-                  <div>isa</div>
-                  <div style={{ color: "#9b9b9b" }}>+90</div>
-                  <div className="dropdown-content">isa</div>
                 </div>
               )
             )}
             <input
+              required={item.type === "tr-input" ? true : false}
               onChange={(event) => handleOnChange(event)}
               onBlur={() => handleOnBlur(false)}
               onFocus={() => handleOnFocus(true)}
-              disabled={false}
+              disabled={item.disabled}
               className={`input
             input-${item.size}
             input-${error ? "error" : null}
             input-${filled ? "filled" : null}`}
               placeholder={item.placeholder}
+              value={innerText}
             />
             {filled && focus ? (
               <img
                 className="clearIcon"
                 src={item.cleartext}
                 alt={"clear-icon"}
-                onClick={() => console.log("clicked")}
+                onMouseDown={() => handleClearInnerText("")}
               />
             ) : (
               error && (

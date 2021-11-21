@@ -6,18 +6,24 @@ import TabMenu from "./pages/TabMenu";
 import SegmentPage from "./pages/SegmentPage";
 import ToastPage from "./pages/ToastPage/ToastPage";
 import InputPage from "./pages/inputPage/InputPage";
+import DrawerPage from "./pages/DrawerPage/DrawerPage";
+import SelectBoxPage from "./pages/selectBox/SelectBoxPage";
+import TablePage from "./pages/TablePage";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header />
+        {/* <Header /> */}
         <Switch>
           <Route path="/buttons" component={ButtonPage} />
           <Route path="/tab-menu" component={TabMenu} />
           <Route path="/segments" component={SegmentPage} />
           <Route path="/toasts" component={ToastPage} />
           <Route path="/inputs" component={InputPage} />
+          <Route path="/drawer" component={DrawerPage} />
+          <Route path="/selectbox" component={SelectBoxPage} />
+          <Route path="/table" component={TablePage} />
         </Switch>
       </BrowserRouter>
     </div>

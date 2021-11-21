@@ -49,8 +49,8 @@
     margin: 2px 0 0 4px;
   }
   .dropdown {
-    min-width: 16px;
-    min-height: 16px;
+    padding: 0;
+    box-sizing: border-box;
     position: relative;
     color: transparent;
     margin-left: 12px;
@@ -62,22 +62,21 @@
   .dropdown-content {
     display: none;
     position: absolute;
-    top: 20px;
+    top: 0px;
     z-index: 1;
   }
 
   .dropdown:hover .dropdown-content {
     cursor: pointer;
     display: block;
-    background-image: url("../../assets/inputsIcons/hepsiburada_logo.png");
     height: 16px;
-    min-width: 16px;
+    width: 14px;
   }
 
   .input-container {
     position: relative;
     background-color: $black-10;
-    margin: 10px 0;
+    // margin: 10px 0;
     width: 328px;
     border-radius: 8px;
     box-sizing: border-box;
@@ -85,7 +84,6 @@
     display: flex;
     transition: all 0.8s ease;
     border: solid 2px transparent;
-
     .leftIcon {
       margin: auto 0 auto 16px;
       cursor: pointer;
@@ -115,6 +113,14 @@
     &-filled {
       background-color: $white;
       border: 2px solid $black-40;
+    }
+    &-discount {
+      width: 448px;
+      height: 40px;
+    }
+    &-x-large {
+      width: 568px;
+      height: 48px;
     }
     &-large {
       height: 56px;
@@ -150,6 +156,11 @@
     &-error {
       background-color: #fef2f2;
       color: $fire-engeine-red-40;
+    }
+    &-discount {
+      width: 100%;
+      margin: 0 16px;
+      font-size: 16px;
     }
     &-large {
       margin: 0 16px;

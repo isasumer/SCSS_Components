@@ -17,10 +17,10 @@
   border-radius: 8px;
   background-color: $black-20;
   display: flex;
-  justify-content: center;
+  justify-content: space-around; //Problem was here
   align-items: center;
   position: relative;
-
+  width: fit-content;
   &-button {
     @extend .defaultStyle;
     &-text {
@@ -30,6 +30,7 @@
     &-default {
       padding: 12px 26px;
       border: none;
+      border-radius: 8px;
     }
     &-small {
       @include segment-size(18px, 8px, 14px, 1.71, -0.28px);
@@ -50,12 +51,12 @@
 
 .segment-fluid {
   @extend .segment;
+
   width: 270px;
   &-button {
     @extend .segment-button;
     padding-left: 0;
     padding-right: 0;
-    flex: 1;
     height: 48px;
     @extend .defaultStyle;
     @include segment-size("", "", 16px, 1.5, -0.32px, 135px);

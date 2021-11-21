@@ -19,13 +19,15 @@ const Segment = (props) => {
           key={id}
           className={`${type}-button${"-" + size}`}
         >
-          <span className="segment-button-text">{item.buttonname}</span>
+          <span className="segment-button-text" ref={(e) => console.log(e)}>
+            {item.buttonname}
+          </span>
         </button>
       ))}
       <div
         className="segment-active"
         style={{
-          width: `${100 / buttonNames.length}% `,
+          width: `calc(100% / ${buttonNames.length} - 4px) `,
           left: `${(100 / buttonNames.length) * toggle}%`,
         }}
       ></div>

@@ -23,9 +23,9 @@ const Buttons = ({
       onClick={onClick}
       disabled={disabled}
     >
-      {leftIcon}
+      {leftIcon && <img src={leftIcon} alt="leftIcon" />}
       <span>{innerText}</span>
-      {rightIcon}
+      {rightIcon && <img src={rightIcon} alt="rightIcon" />}
     </button>
   );
 };

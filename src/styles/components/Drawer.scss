@@ -1,0 +1,58 @@
+.drawer {
+  background: #fff;
+  width: 50%;
+  height: 100%;
+  overflow: auto;
+  position: fixed;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  transition: transform 0.8s ease;
+  z-index: 1000;
+}
+
+.drawer,
+.small {
+  width: 25%;
+}
+.drawer.default {
+  width: 35%;
+}
+.drawer.large {
+  width: 45%;
+}
+.drawer.left {
+  top: 0;
+  left: 0;
+  transform: translateX(-100%);
+}
+
+.drawer.right {
+  top: 0;
+  right: 0;
+  transform: translateX(100%);
+}
+
+.drawer-container.in.open .left,
+.drawer-container.in.open .right {
+  transform: translateX(0);
+}
+
+.backdrop {
+  visibility: hidden;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.5);
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  pointer-events: auto;
+  z-index: 0;
+}
+
+.drawer-container.in.open .backdrop {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 999;
+}

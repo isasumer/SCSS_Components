@@ -19,6 +19,15 @@ const Header = () => {
       <Link to="/inputs">
         <button className="header-btn">Input Page</button>
       </Link>
+      <Link to="/drawer">
+        <button className="header-btn">Drawer Page</button>
+      </Link>
+      <Link to="/selectbox">
+        <button className="header-btn">SelectBox Page</button>
+      </Link>
+      <Link to="/table">
+        <button className="header-btn">Table Page</button>
+      </Link>
     </div>
   );
 };

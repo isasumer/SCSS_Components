@@ -37,7 +37,10 @@ const Toast = ({ list, setList }) => {
           onMouseEnter={() => pauseTimer(false)}
           onMouseLeave={() => pauseTimer(true)}
           key={i}
-          className={`toast toast-${toast.type} toast-${toast.lineType} position `}
+          className={`toast toast-${toast.type} 
+          toast-${toast.type}-${toast.isDesktop ? null : "mobile"}
+          toast-${toast.lineType}
+          position `}
         >
           <div className="content-container">
             <img className="icon-toast" src={toast.icon} alt={toast.title} />

@@ -1,0 +1,12 @@
+.table {
+  &-content-header {
+    border: 1px solid black;
+  }
+  &-content-campaignId {
+    display: flex;
+    align-items: center;
+  }
+}
+thead {
+  border: 1px solid red;
+}

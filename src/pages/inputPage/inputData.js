@@ -14,6 +14,7 @@ import tr from "../../assets/inputsIcons/tr.png";
 const data = [
   {
     id: 1,
+    disabled: false,
     type: "default-input",
     cleartext: clearlarge,
     error: error,
@@ -28,6 +29,7 @@ const data = [
   },
   {
     id: 2,
+    disabled: false,
     type: "default-input",
     cleartext: cleardefault,
     error: error,
@@ -42,6 +44,7 @@ const data = [
   },
   {
     id: 3,
+    disabled: false,
     type: "default-input",
     cleartext: clearsmall,
     error: error,
@@ -56,6 +59,7 @@ const data = [
   },
   {
     id: 4,
+    disabled: false,
     type: "icon-input",
     cleartext: clearlarge,
     error: error,
@@ -70,6 +74,7 @@ const data = [
   },
   {
     id: 5,
+    disabled: false,
     type: "icon-input",
     cleartext: cleardefault,
     error: error,
@@ -84,6 +89,7 @@ const data = [
   },
   {
     id: 6,
+    disabled: false,
     type: "icon-input",
     cleartext: clearsmall,
     error: error,
@@ -98,6 +104,7 @@ const data = [
   },
   {
     id: 7,
+    disabled: false,
     type: "tr-input",
     cleartext: cleardefault,
     error: error,
@@ -112,6 +119,7 @@ const data = [
   },
   {
     id: 8,
+    disabled: false,
     type: "tr-input",
     cleartext: clearsmall,
     error: error,
@@ -126,6 +134,7 @@ const data = [
   },
   {
     id: 9,
+    disabled: false,
     type: "tr-input",
     cleartext: clearsmall,
     error: error,
@@ -140,6 +149,7 @@ const data = [
   },
   {
     id: 10,
+    disabled: false,
     type: "label-input",
     cleartext: clearsmall,
     error: error,
@@ -154,6 +164,7 @@ const data = [
   },
   {
     id: 11,
+    disabled: false,
     type: "label-input",
     cleartext: clearsmall,
     error: error,
@@ -168,6 +179,7 @@ const data = [
   },
   {
     id: 12,
+    disabled: false,
     type: "label-input",
     cleartext: clearsmall,
     error: error,

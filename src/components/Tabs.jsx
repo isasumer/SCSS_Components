@@ -21,7 +21,7 @@ const Tabs = ({ values }) => {
           </li>
         ))}
       </ul>
-      <div className="tab-contents">
+      {/* <div className="tab-contents">
         {values.map((item) => (
           <p
             className={
@@ -32,7 +32,7 @@ const Tabs = ({ values }) => {
             {item.tabContent}
           </p>
         ))}
-      </div>
+      </div> */}
       <div className="content"></div>
     </div>
   );
