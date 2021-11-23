@@ -1,0 +1,154 @@
+$primary-bgColor: #ff6000;
+$primary-bgHoverColor: #e35600;
+$primary-bgFocusColor: #cc4d00;
+$primary-bgDisabledColor: #cccccc;
+$primary-textColor: #ffffff;
+$primary-textHoverColor: #ffffff;
+$primary-textFocusColor: #ffffff;
+$primary-textDisabledColor: #919191;
+$secondary-bgColor: rgba(255, 98, 0, 0.08);
+$secondary-bgHoverColor: rgba(227, 86, 0, 0.12);
+$secondary-bgFocusColor: rgba(204, 77, 0, 0.2);
+$secondary-bgDisabledColor: #cccccc;
+$secondary-textColor: #ff6000;
+$secondary-textHoverColor: #ff6000;
+$secondary-textFocusColor: #ff6000;
+$secondary-textDisabledColor: #919191;
+$tertiary-bgColor: #6c84fa;
+$tertiary-bgHoverColor: #5163bb;
+$tertiary-bgFocusColor: #3c4a8c;
+$tertiary-bgDisabledColor: #cccccc;
+$tertiary-textColor: #ffffff;
+$tertiary-textHoverColor: #ffffff;
+$tertiary-textFocusColor: #ffffff;
+$tertiary-textDisabledColor: #919191;
+$ghost-bgColor: transparent;
+$ghost-bgHoverColor: transparent;
+$ghost-bgFocusColor: transparent;
+$ghost-bgDisabledColor: transparent;
+$ghost-textColor: #484848;
+$ghost-textHoverColor: #ff6000;
+$ghost-textFocusColor: #c25700;
+$ghost-textDisabledColor: #919191;
+$ghost-border-default: solid 2px #cccccc;
+$ghost-border-hover: solid 2px #cccccc;
+$ghost-border-focus: solid 2px #cccccc;
+$ghost-border-disabled: solid 2px #e5e5e5;
+$danger-bgColor: #f90000;
+$danger-bgHoverColor: #ba0000;
+$danger-bgFocusColor: #8c0000;
+$danger-bgDisabledColor: #cccccc;
+$danger-textColor: #ffffff;
+$danger-textHoverColor: #ffffff;
+$danger-textFocusColor: #ffffff;
+$danger-textDisabledColor: #919191;
+$success-bgColor: #5ad363;
+$success-bgHoverColor: #439e4a;
+$success-bgFocusColor: #327637;
+$success-bgDisabledColor: #cccccc;
+$success-textColor: #ffffff;
+$success-textHoverColor: #ffffff;
+$success-textFocusColor: #ffffff;
+$success-textDisabledColor: #919191;
+$primary-link-bgColor: transparent;
+$primary-link-bgHoverColor: transparent;
+$primary-link-bgFocusColor: transparent;
+$primary-link-bgDisabledColor: transparent;
+$primary-link-textColor: #ff6000;
+$primary-link-textHoverColor: #c25700;
+$primary-link-textFocusColor: #c25700;
+$primary-link-textDisabledColor: #919191;
+$ghost-link-bgColor: transparent;
+$ghost-link-bgHoverColor: transparent;
+$ghost-link-bgFocusColor: transparent;
+$ghost-link-bgDisabledColor: transparent;
+$ghost-link-textColor: #484848;
+$ghost-link-textHoverColor: #ff6000;
+$ghost-link-textFocusColor: #c25700;
+$ghost-link-textDisabledColor: #919191;
+
+$toast-error-desktop: #fee0e0;
+$toast-info-desktop: #f4f6ff;
+$toast-success-desktop: #ebf9ec;
+$toast-warning-desktop: #fffea9;
+
+$orange: #ff6000;
+$fire-engeine-red-40: #fa3f3f;
+$cornflowers: #6c84fa;
+$lightish-green: #5ad363;
+$star: #f5cf3f;
+
+$white: #ffffff;
+$black-10: #f5f5f5;
+$black-20: #eeeeee;
+$black-30: #e5e5e5;
+$black-40: #dddddd;
+$black-60: #9b9b9b;
+$black-80: #7b7b7b;
+$black-90: #646464;
+$black-100: #484848;
+
+/*Sizes*/
+
+$multiline-toastHeight: 121px;
+$singleline-toastHeight: 56px;
+$default-toastWidth: 326px;
+
+//Large
+$large-btnWidth: 140px;
+$large-btnHeight: 54px;
+$large-fontSize: 16px;
+$large-lineHeight: 1.5;
+$large-letterSpacing: -0.32px;
+
+//default
+$default-btnWidth: 99px;
+$default-btnHeight: 48px;
+$default-fontSize: 16px;
+$default-lineHeight: 1.5;
+$default-letterSpacing: -0.32px;
+
+//small
+$small-btnWidth: 77px;
+$small-btnHeight: 40px;
+$small-fontSize: 14px;
+$small-lineHeight: 1.71;
+$small-letterSpacing: -0.28px;
+
+//tiny
+$tiny-btnWidth: 55px;
+$tiny-btnHeight: 32px;
+$tiny-fontSize: 12px;
+$tiny-lineHeight: 2;
+$tiny-letterSpacing: -0.24px;
+
+$size-xxll: 48px;
+$size-xxl: 44px;
+$size-xxl-2: 32px;
+$size-xl-3: 28px;
+$size-xl-2: 26px;
+$size-xl: 24px;
+$size-l: 20px;
+$size-ml: 18px;
+$size-m: 16px;
+$size-ms: 14px;
+$size-s: 12px;
+$size-s-1: 10px;
+$size-xs: 8px;
+$size-xs-1: 6px;
+$size-xxs: 4px;
+
+/* line heights */
+$line-height-lldd: 1.2;
+$line-height-lld: 1.43;
+$line-height-ld: 1.5;
+$line-height-m: 1.67;
+$line-height-s: 1.71;
+$line-height-t: 2;
+$letter-spacing-ld-2: 0.33px;
+$letter-spacing-ld: -0.32px;
+$letter-spacing-s: -0.28px;
+$letter-spacing-t-1: -0.25px;
+$letter-spacing-t: -0.24px;
+$letter-spacing-ts: -0.15px;
+$letter-spacing-n: normal;
