@@ -1,22 +1,13 @@
-import React, { useEffect, useState } from "react";
-import * as Styles from "../../styles/components/Table.module.scss";
+import React, { useState } from "react";
 import Checkbox from "./Checkbox";
+import Pagination from "../Pagination";
+import "../../styles/components/Table.scss";
 
-const Table = ({ columns, dataSource, selection }) => {
-  const [_columns, set_columns] = useState([]);
+const Table = ({ columns, dataSource, selection, searchData, Ref }) => {
   const [selectionList, setSelectionList] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const rowNumberPerPage = 8;
 
-  function handleSelectionChange(id) {
-    console.log({ id });
-    if (selectionList.includes(id)) {
-      setSelectionList(
-        selectionList.filter((selectedId) => console.log({ selectedId }))
-      );
-    } else {
-      setSelectionList((list) => [...list, id]);
-    }
-  }
-  console.log(selectionList);
   function handleSelectAll() {
     if (dataSource.length !== selectionList.length) {
       setSelectionList(dataSource.map((row) => row.campaignId));
@@ -25,10 +16,20 @@ const Table = ({ columns, dataSource, selection }) => {
     }
   }
 
-  useEffect(() => {
-    //put input in front of columns at first render
+  function handleSelectionChange(id) {
+    if (selectionList.includes(id)) {
+      setSelectionList((list) =>
+        list.filter((selectedId) => selectedId !== id)
+      );
+    } else {
+      setSelectionList((list) => [...list, id]);
+    }
+  }
+
+  function getColumns() {
+    let _columns = [...columns];
     if (selection) {
-      const selectColumn = {
+      _columns.unshift({
         name: "selection",
         caption: "",
         dataType: "object",
@@ -38,14 +39,13 @@ const Table = ({ columns, dataSource, selection }) => {
             onToggle={() => handleSelectionChange(id)}
           />
         ),
-      };
-
-      set_columns([selectColumn, ...columns]);
+      });
     }
-  }, []);
+    return _columns;
+  }
 
-  function renderCell(mode, cellName, content) {
-    return mode === "header" ? (
+  function renderHeaderCell(cellName, content) {
+    return (
       <th key={cellName} className="cell cell-header">
         {cellName === "selection" ? ( // puts input into header
           <Checkbox
@@ -56,26 +56,48 @@ const Table = ({ columns, dataSource, selection }) => {
           content
         )}
       </th>
-    ) : (
-      <td className="cell">{content}</td>
+    );
+  }
+
+  function renderRowCell(content, key) {
+    return (
+      <td key={key} className="cell">
+        {content}
+      </td>
     );
   }
 
   function renderTableHeading() {
-    return _columns.map((column) =>
-      renderCell("header", column.name, column.caption)
+    return getColumns().map((column) =>
+      renderHeaderCell(column.name, column.caption)
     );
   }
 
+  function getSearchedData() {
+    if (searchData) {
+      return dataSource.filter((item) =>
+        JSON.stringify(item).toLowerCase()?.includes(searchData.toLowerCase())
+      );
+    }
+    return dataSource;
+  }
+
+  function getRowData() {
+    let _data = getSearchedData();
+    const startIndex = currentPage * rowNumberPerPage - rowNumberPerPage;
+    const endIndex = startIndex + rowNumberPerPage;
+    return _data.slice(startIndex, endIndex);
+  }
+
   function renderTableRows() {
-    return dataSource.map((row) => {
+    return getRowData().map((row) => {
       if (selection) {
         row.selection = row.campaignId;
       }
       return (
         <tr>
-          {_columns.map((column) =>
-            renderCell("row", null, column.render(row[column.name]))
+          {getColumns().map((column) =>
+            renderRowCell(column.render(row[column.name], column.name))
           )}
         </tr>
       );
@@ -83,12 +105,30 @@ const Table = ({ columns, dataSource, selection }) => {
   }
 
   return (
-    <table className={Styles.tableContent}>
-      <thead className={Styles.tableContentHeader}>
-        {renderTableHeading()}
-      </thead>
-      <tbody className={Styles.tableContentRows}>{renderTableRows()}</tbody>
-    </table>
+    <div>
+      <div ref={Ref} className="table-wrapper">
+        <table className="table">
+          <thead>{renderTableHeading()}</thead>
+          <tbody>{renderTableRows()}</tbody>
+        </table>
+      </div>
+      <div className="pagination_wrapper">
+        <div className="pagination_wrapper-left">
+          <b>{getSearchedData().length}</b> indirimden{" "}
+          <b>
+            {(currentPage - 1) * rowNumberPerPage + 1} -{" "}
+            {currentPage * rowNumberPerPage}
+          </b>{" "}
+          arasını görüntülüyorsunuz.
+        </div>
+        <Pagination
+          totalCount={getSearchedData().length}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          rowNumberPerPage={rowNumberPerPage}
+        />
+      </div>
+    </div>
   );
 };
 

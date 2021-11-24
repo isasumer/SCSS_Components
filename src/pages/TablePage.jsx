@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import clearlarge from "../assets/inputsIcons/clear-text_2.png";
+import closeIcon from "../assets/tableIcon/default.png";
 import error from "../assets/inputsIcons/error.png";
 import searchIcon from "../assets/inputsIcons/search.png";
 import chevronLeft from "../assets/tableIcon/circle-back-copy.png";
@@ -7,10 +8,12 @@ import chevronRight from "../assets/tableIcon/circle-back-copy-2.png";
 import Table from "../components/Table/Table";
 import "../styles/pages/tablePage.scss";
 import tabledata from "../assets/tabledata.json";
-// import columns from "../components/Table/ColumnsData";
 import Buttons from "../components/Buttons";
 import Inputs from "../components/Inputs";
-
+import Drawer from "../components/Drawer";
+import classnames from "classnames";
+import "../styles/components/Drawer.scss";
+import MakeDiscount from "../components/MakeDiscount";
 function getTableData() {
   const columns = [
     {
@@ -31,7 +34,7 @@ function getTableData() {
       name: "affectedListingCount",
       caption: "Etkilenen Liste Sayısı",
       dataType: "string",
-      render: (value) => <span>{value}</span>,
+      render: (value) => <span>{value ? value : "-"}</span>,
     },
     {
       name: "includedMerchants",
@@ -49,7 +52,11 @@ function getTableData() {
       name: "isPaused",
       caption: "Durum",
       dataType: "boolean",
-      render: (value) => <span>{value ? "Aktif" : "Pasif"}</span>,
+      render: (value) => (
+        <div className={`isPaused isPaused-${value ? "active" : "passive"}`}>
+          {value ? "Aktif" : "Pasif"}
+        </div>
+      ),
     },
     {
       name: "startDate",
@@ -75,11 +82,14 @@ function getTableData() {
 }
 
 const TablePage = () => {
-  const [filterdata, setFilterData] = useState("");
-  console.log(tabledata);
+  const [isOpen, setIsOpen] = useState(false);
+  const [searchData, setSearchData] = useState("");
   const { columns, dataSource } = getTableData();
+  const scrollRef = useRef(null);
+  const scroll = (scrollOffset) => {
+    scrollRef.current.scrollLeft += scrollOffset;
+  };
 
-  console.log(dataSource);
   return (
     <div className="table-container">
       <div className="table-header">
@@ -87,7 +97,7 @@ const TablePage = () => {
         <div className="table-header-right">
           <div className="header-input-container">
             <Inputs
-              setFilterData={setFilterData}
+              setSearchData={setSearchData}
               data={[
                 {
                   id: 1,
@@ -111,7 +121,8 @@ const TablePage = () => {
             innerText={"İndirim Oluştur"}
             color={"primary"}
             size={"discount"}
-            disabled={false} ///cursor not allowed
+            onClick={() => setIsOpen(!isOpen)}
+            disabled={false}
           />
         </div>
       </div>
@@ -120,14 +131,49 @@ const TablePage = () => {
         <div className="table-sub-header-right">
           <div className="table-sub-header-right-text">Dışarı aktar</div>
           <div className="table-sub-header-right-img">
-            <img src={chevronLeft} alt="chevronLeft" />
-            <img src={chevronRight} alt="chevronRight" />
+            <img
+              src={chevronLeft}
+              alt="chevronLeft"
+              onClick={() => scroll(-200)}
+            />
+            <img
+              src={chevronRight}
+              alt="chevronRight"
+              onClick={() => scroll(+200)}
+            />
           </div>
         </div>
       </div>
-      <Table columns={columns} dataSource={dataSource} selection={true} />
+      <div className="table_wrapper">
+        <Table
+          Ref={scrollRef}
+          columns={columns}
+          dataSource={dataSource}
+          selection={true}
+          searchData={searchData}
+        />
+      </div>
+      <Drawer
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        position={"right"}
+        size={"large"}
+      >
+        <div className="drawer-content">
+          <div className="drawer-content-header">
+            <div className="drawer-close" onClick={() => setIsOpen(false)}>
+              <img src={closeIcon} alt="closeIcon" />
+            </div>
+            <h2>İndirim oluştur</h2>
+          </div>
+          <MakeDiscount />
+          <div className={classnames("drawer-footer", "default")}>
+            <Buttons innerText={"Primary"} color={"primary"} size={"default"} />
+            <Buttons innerText={"Vazgeç"} color={"ghost"} size={"default"} />
+          </div>
+        </div>
+      </Drawer>
     </div>
   );
 };
-
 export default TablePage;

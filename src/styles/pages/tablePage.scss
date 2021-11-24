@@ -3,9 +3,9 @@
 .table {
   &-container {
     // max-width: 1060px;
-    padding: 50px 200px;
+    padding: 50px;
     // background-color: rgb(238, 155, 0);
-    width: 100%;
+    width: 1080px;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -30,12 +30,14 @@
     }
   }
   &-sub-header {
-    // border: 1px solid red;
+    border-style: none none solid none;
+    border-color: $black-20;
+    border-width: 1px;
     margin-bottom: 8px;
+    padding-bottom: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     &-left {
       width: 46px;
       height: 21px;
@@ -70,6 +72,7 @@
           margin-left: 16px;
           width: 28px;
           height: 28px;
+          cursor: pointer;
         }
       }
     }

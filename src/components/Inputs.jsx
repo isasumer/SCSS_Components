@@ -3,7 +3,7 @@ import "../styles/components/Inputs.scss";
 import selectbox from "../assets/inputsIcons/selectbox.png";
 import info from "../assets/inputsIcons/info.png";
 
-const Inputs = ({ data, setFilterData }) => {
+const Inputs = ({ data, setSearchData }) => {
   const [focus, setFocus] = useState(false);
   const [filled, setFilled] = useState(false);
   const [error, setError] = useState(false);
@@ -31,7 +31,7 @@ const Inputs = ({ data, setFilterData }) => {
     //   setInnerText("(" + manipulatedData + ")");
     // } else {
     setInnerText(event.target.value);
-    setFilterData(event.target.value);
+    setSearchData(event.target.value);
 
     innerText ? setFilled(true) : setFilled(false);
 
@@ -65,7 +65,7 @@ const Inputs = ({ data, setFilterData }) => {
           }}
         >
           {item.label && (
-            <div className="label">
+            <div className={`label label-${item.size}`}>
               <span>{item.label[0]} </span>
               <span>{item.label[1]}</span>
             </div>

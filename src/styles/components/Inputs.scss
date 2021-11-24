@@ -14,6 +14,11 @@
     letter-spacing: -0.25px;
     color: $black-100;
     margin-left: 8px;
+    &-x-large {
+      margin-left: 0px;
+      font-weight: 600;
+      font-size: 14px;
+    }
 
     span:last-child {
       margin-left: 8px;
@@ -120,7 +125,7 @@
     }
     &-x-large {
       width: 568px;
-      height: 48px;
+      height: 60px;
     }
     &-large {
       height: 56px;

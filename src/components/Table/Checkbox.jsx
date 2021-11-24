@@ -1,24 +1,16 @@
-import React, { useEffect, useState } from "react";
 import checkForm from "../../assets/inputsIcons/check-form@3x.png";
 
 const Checkbox = ({ checked = false, onToggle }) => {
-  const [value, setValue] = useState(false);
-
-  useEffect(() => {
-    setValue(checked);
-  }, [checked]);
-
-  function handleOnChange() {
-    onToggle?.(value);
-    setValue(value);
-  }
+  const handleOnChange = (item) => {
+    onToggle?.(item);
+  };
   return (
     <input
       className="table-content-campaignId-input"
       style={{ backgroundImage: `url(${checkForm})` }}
       type="checkbox"
-      checked={value}
-      onChange={() => handleOnChange(!value)}
+      checked={checked}
+      onChange={() => handleOnChange(!checked)}
     />
   );
 };

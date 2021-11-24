@@ -1,0 +1,12 @@
+.item {
+  &-page {
+    // margin-left: 30px;
+  }
+}
+.item-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(6, 300px);
+  grid-auto-rows: auto;
+  grid-gap: 10px;
+}

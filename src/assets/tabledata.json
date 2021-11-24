@@ -504,7 +504,7 @@
          ],
          "startDate":"2021-11-16T11:01:00Z",
          "endDate":"2021-11-16T12:30:00Z",
-         "isPaused":false,
+         "isPaused":true,
          "shortDescription":"RetailDiscount",
          "tagIds":null,
          "desktopVignette":{
@@ -2682,7 +2682,7 @@
          ],
          "startDate":"2021-11-12T10:33:32Z",
          "endDate":"2021-11-12T11:00:00Z",
-         "isPaused":false,
+         "isPaused":true,
          "shortDescription":"RetailDiscount",
          "tagIds":null,
          "desktopVignette":{

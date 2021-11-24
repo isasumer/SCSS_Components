@@ -9,6 +9,7 @@ import InputPage from "./pages/inputPage/InputPage";
 import DrawerPage from "./pages/DrawerPage/DrawerPage";
 import SelectBoxPage from "./pages/selectBox/SelectBoxPage";
 import TablePage from "./pages/TablePage";
+import ItemCardPage from "./pages/ItemCardPage";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/drawer" component={DrawerPage} />
           <Route path="/selectbox" component={SelectBoxPage} />
           <Route path="/table" component={TablePage} />
+          <Route path="/itemcard" component={ItemCardPage} />
         </Switch>
       </BrowserRouter>
     </div>

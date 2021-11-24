@@ -77,12 +77,10 @@ const Drawer = ({
   }
 
   const handleOnFocus = (props) => {
-    console.log("handleOnFocus");
     setFocus(props);
   };
 
   const handleOnBlur = (props) => {
-    console.log("handleOnBlur");
     setFocus(props);
   };
   return createPortal(
