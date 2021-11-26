@@ -1,52 +1,38 @@
-import React, { useState } from "react";
 import Buttons from "../components/Buttons";
 import "../styles/components/ItemCard.scss";
 
-const ItemCard = ({ item }) => {
-  const [focus, setFocus] = useState(true);
-
-  const handleOnFocus = (props) => {
-    setFocus(props);
-  };
-
-  const handleOnBlur = (props) => {
-    setFocus(props);
-  };
-  console.log(item);
+const ItemCard = ({
+  id,
+  description,
+  image,
+  title,
+  date,
+  url,
+  author,
+  btn_inner_text,
+}) => {
   return (
-    <div
-      className="item-wrapper"
-      onBlur={() => handleOnBlur(true)}
-      onFocus={() => handleOnFocus(true)}
-    >
+    <div className="item-wrapper">
       <div className="item-img">
-        <img src={item.thumbnail} alt={item.title} />
+        <img src={image} alt={title} />
       </div>
-      {focus ? (
-        <div
-          className="item-top"
-          // onBlur={() => handleOnBlur(false)}
-          // onFocus={() => handleOnFocus(true)}
-        >
-          {" "}
-          <div className="title">{item.title}</div>
-          <div className="item-developer">
-            <span>{item.developer}</span>-<span>{item.genre}</span>
-          </div>
-          <div className="item-release-date">{item.release_date}</div>
-          <div className="item-description">{item.short_description}</div>
+      <div className="item-top">
+        <h3 className="title">{title}</h3>
+        <div className="item-developer">
+          <span>{author}</span>
+          <span>{date}</span>
         </div>
-      ) : (
-        <div className="item-button">
-          <Buttons
-            onClick={() => window.open(item.game_url)}
-            innerText={"View Game"}
-            color={"primary"}
-            size={"default"}
-            disabled={false} ///cursor not allowed
-          />
-        </div>
-      )}
+        <div className="item-description">{description}</div>
+      </div>
+      <div className="item-button">
+        <Buttons
+          onClick={() => window.open(url)}
+          innerText={btn_inner_text}
+          color={"primary"}
+          size={"default"}
+          disabled={false}
+        />
+      </div>
     </div>
   );
 };

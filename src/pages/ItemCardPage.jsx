@@ -33,9 +33,21 @@ const ItemCardPage = () => {
 
   return (
     <div className="item-page">
+      <div className="header-container">
+        <h1>Free to Play Games</h1>
+      </div>
       <div className="item-container">
         {getSlicedData().map((item) => (
-          <ItemCard item={item} />
+          <ItemCard
+            id={item.id}
+            description={item.short_description}
+            image={item.thumbnail}
+            title={item.title}
+            date={item.release_date}
+            url={item.game_url}
+            author={item.developer}
+            btn_inner_text="View Game"
+          />
         ))}
       </div>
       <div className="pagination_wrapper">

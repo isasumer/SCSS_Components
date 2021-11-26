@@ -1,0 +1,114 @@
+@import "../abstracts/_variables.scss";
+.solution-header {
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  width: 1440px;
+  height: 96px;
+  cursor: pointer;
+  &-image {
+    width: 141px;
+    height: 24px;
+  }
+  &-categories {
+    &-icon {
+      width: 24px;
+      height: 24px;
+      margin-left: 26px;
+    }
+    &-title {
+      width: 75px;
+      margin-left: 26px;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.14;
+      letter-spacing: -0.15px;
+      color: $black-100;
+    }
+  }
+  &-search {
+    display: flex;
+    align-items: center;
+    width: 695px;
+    height: 48px;
+    margin: 0 32px;
+    padding: 0 24px 0 16px;
+    border-radius: 24px;
+    background-color: $black-20;
+    &-input {
+      border: none;
+      width: 623px;
+      height: 48px;
+      margin: 0 0 0 12px;
+      font-size: 14px;
+      line-height: 1.07;
+      letter-spacing: -0.34px;
+      background-color: $black-20;
+      color: $black-60;
+    }
+  }
+  &-cart {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    &-icon {
+      width: 24px;
+      height: 24px;
+    }
+    &-bubble {
+      width: 18px;
+      height: 16px;
+      top: 6px;
+      right: 3px;
+      font-size: 11px;
+      font-weight: 600;
+      line-height: 1.45;
+      border-radius: 50%;
+      position: absolute;
+      text-align: center;
+      color: $white;
+      background-color: $orange;
+    }
+    &-text {
+      margin-left: 4px;
+      font-size: 14px;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.14;
+      letter-spacing: -0.15px;
+      color: $black-100;
+    }
+  }
+  &-orders {
+    &-icon {
+      margin-left: 28px;
+      width: 24px;
+      height: 24px;
+    }
+    &-text {
+      margin-left: 28px;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.14;
+      letter-spacing: -0.15px;
+      color: $black-100;
+    }
+  }
+  &-login {
+    text-align: center;
+    margin-left: 16px;
+    width: 48px;
+    height: 48px;
+    padding: 17px 4.8px 16.6px 5.2px;
+    border-radius: 24px;
+    background-color: $black-20;
+    font-size: 14.4px;
+    font-weight: bold;
+    line-height: 1;
+    color: $black-100;
+  }
+}

@@ -10,6 +10,8 @@ import DrawerPage from "./pages/DrawerPage/DrawerPage";
 import SelectBoxPage from "./pages/selectBox/SelectBoxPage";
 import TablePage from "./pages/TablePage";
 import ItemCardPage from "./pages/ItemCardPage";
+import CurrentNewsPage from "./pages/CurrentNewsPage";
+import SolutionCenterPage from "./pages/SolutionCenterPage";
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
           <Route path="/selectbox" component={SelectBoxPage} />
           <Route path="/table" component={TablePage} />
           <Route path="/itemcard" component={ItemCardPage} />
+          <Route path="/currentnews" component={CurrentNewsPage} />
+          <Route path="/solutioncenter" component={SolutionCenterPage} />
         </Switch>
       </BrowserRouter>
     </div>

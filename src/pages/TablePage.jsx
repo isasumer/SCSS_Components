@@ -146,6 +146,7 @@ const TablePage = () => {
       </div>
       <div className="table_wrapper">
         <Table
+          minCellWidth={120}
           Ref={scrollRef}
           columns={columns}
           dataSource={dataSource}
@@ -164,7 +165,7 @@ const TablePage = () => {
             <div className="drawer-close" onClick={() => setIsOpen(false)}>
               <img src={closeIcon} alt="closeIcon" />
             </div>
-            <h2>İndirim oluştur</h2>
+            <h2 className="drawer-header-title">İndirim oluştur</h2>
           </div>
           <MakeDiscount />
           <div className={classnames("drawer-footer", "default")}>

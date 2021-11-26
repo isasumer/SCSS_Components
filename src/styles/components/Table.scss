@@ -1,51 +1,123 @@
 @import "../abstracts/variables";
-.table-wrapper {
-  position: relative;
-  overflow: hidden;
-  white-space: nowrap;
-  table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    td:nth-child(1),
-    th:nth-child(1) {
-      z-index: 5;
-      position: sticky;
-      background-color: white !important;
-      width: 53px;
-      min-width: 53px;
-      max-width: 53px;
-      left: 0px;
-    }
-    td:nth-child(2),
-    th:nth-child(2) {
-      z-index: 5;
-      position: sticky;
-      background-color: white !important;
-      width: 150px;
-      min-width: 150px;
-      max-width: 150px;
-      left: 53px;
-    }
-  }
+// * {
+//   box-sizing: border-box;
+// }
 
-  .table td,
-  .table th {
-    border-style: none none solid none;
-    border-color: $black-20;
-    border-width: 2px;
-    padding-left: 25px;
-    margin: 10px;
+.table-wrapper {
+  margin-bottom: 25px;
+  border-radius: 6px;
+  background: #fff;
+  overflow: hidden; /* Clip any scrollbars that appear */
+}
+
+table {
+  width: 100%;
+  display: grid;
+  grid-template-columns:
+    minmax(50px, 1fr)
+    minmax(120px, 1fr)
+    minmax(120px, 1fr)
+    minmax(100px, 1fr)
+    minmax(200px, 1fr)
+    minmax(150px, 1fr)
+    minmax(100px, 1fr)
+    minmax(200px, 1fr)
+    minmax(200px, 1fr);
+}
+th:nth-child(1),
+td:nth-child(1) {
+  z-index: 5;
+  position: sticky;
+  background-color: white !important;
+  left: 0px;
+}
+th:nth-child(2),
+td:nth-child(2) {
+  z-index: 5;
+  position: sticky;
+  background-color: white !important;
+  left: 50px;
+}
+
+table thead,
+table tbody,
+table tr {
+  display: contents;
+}
+table tr {
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: -0.28px;
+  color: $black-90;
+}
+table th {
+  font-size: 14px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: -0.24px;
+  color: $black-100;
+  position: relative;
+}
+
+table th,
+table td {
+  text-align: left;
+  padding: 8px 10px;
+  min-width: 50px;
+}
+
+table th span,
+table td span {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: block;
+}
+
+table tr td {
+  border-top: 1px solid $black-20;
+}
+
+.resize-handle {
+  display: block;
+  position: absolute;
+  cursor: col-resize;
+  width: 7px;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  border-right: 2px solid transparent;
+}
+
+.resize-handle:hover {
+  border-color: #ccc;
+}
+
+.resize-handle.active {
+  border-color: #517ea5;
+}
+.isPaused {
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  text-align: center;
+  color: white;
+  line-height: 1.5;
+  letter-spacing: -0.28px;
+  width: 42px;
+  height: 20px;
+  border-radius: 3px;
+  &-active {
+    background-color: #45b796;
   }
-  .isPaused {
-    width: 38px;
-    height: 20px;
-    border-radius: 3px;
-    &-active {
-      background-color: #45b796;
-    }
-    &-passive {
-      background-color: #fa3f3f;
-    }
+  &-passive {
+    background-color: #fa3f3f;
   }
 }
 .pagination_wrapper {

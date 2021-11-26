@@ -28,6 +28,15 @@ const Header = () => {
       <Link to="/table">
         <button className="header-btn">Table Page</button>
       </Link>
+      <Link to="/itemcard">
+        <button className="header-btn">Item Card Page</button>
+      </Link>
+      <Link to="/currentnews">
+        <button className="header-btn">Current News Page</button>
+      </Link>
+      <Link to="/solutioncenter">
+        <button className="header-btn">Solution Center Page</button>
+      </Link>
     </div>
   );
 };

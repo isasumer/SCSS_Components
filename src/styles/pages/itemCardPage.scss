@@ -1,6 +1,6 @@
 .item {
   &-page {
-    // margin-left: 30px;
+    margin: 40px;
   }
 }
 .item-container {
@@ -9,4 +9,10 @@
   grid-template-columns: repeat(6, 300px);
   grid-auto-rows: auto;
   grid-gap: 10px;
+}
+.current-news-btn-container,
+.header-container {
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
