@@ -12,6 +12,7 @@ import TablePage from "./pages/TablePage";
 import ItemCardPage from "./pages/ItemCardPage";
 import CurrentNewsPage from "./pages/CurrentNewsPage";
 import SolutionCenterPage from "./pages/SolutionCenterPage";
+import Button from "./components/Button";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/itemcard" component={ItemCardPage} />
           <Route path="/currentnews" component={CurrentNewsPage} />
           <Route path="/solutioncenter" component={SolutionCenterPage} />
+          <Route path="/button" component={Button} />
         </Switch>
       </BrowserRouter>
     </div>

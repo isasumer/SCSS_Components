@@ -137,6 +137,9 @@
   &-discount {
     @include btn-size(128px, 40px, 14px, 1.71, -0.28px);
   }
+  &-solution {
+    @include btn-size(253px, 48px, 16px, 1.5, -0.32px);
+  }
   &-small {
     @include btn-size(
       $small-btnWidth,

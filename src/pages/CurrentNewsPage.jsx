@@ -22,6 +22,7 @@ const CurrentNewsPage = () => {
       setNews(response.data.news);
     });
   }, [currentPage, baseUrl]);
+
   return (
     <div className="itemPage">
       <div className="header-container">
