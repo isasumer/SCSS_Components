@@ -1,6 +1,5 @@
 @import "../abstracts/variables";
 .solution-content-top {
-  //   border: 1px solid red;
   display: flex;
   width: 1440px;
   height: 600px;
@@ -9,7 +8,6 @@
     height: 600px;
   }
   &-right {
-    // border: 1px solid blue;
     width: 720px;
     height: 600px;
     &-greeting {
@@ -50,6 +48,7 @@
         line-height: normal;
         letter-spacing: normal;
         color: $orange;
+        cursor: pointer;
       }
     }
     &-req-card {
@@ -73,21 +72,16 @@
       &-ques {
         display: flex;
         flex-direction: column;
-        margin: 0 8px 0 16px;
+        margin: 0 16px;
+        line-height: 1.5;
         > div:nth-child(1) {
-          width: 204px;
-          height: 21px;
           font-size: 14px;
           font-weight: 600;
-          line-height: 1.5;
           letter-spacing: -0.28px;
           color: $black-100;
         }
         > div:nth-child(2) {
-          width: 340px;
-          height: 18px;
           font-size: 12px;
-          line-height: 1.5;
           letter-spacing: -0.24px;
           color: $black-90;
           > span {
@@ -99,13 +93,41 @@
         border-radius: 50%;
         width: 32px;
         height: 32px;
-        margin: 4px 0 19px 38px;
-        padding: 8px;
+        margin: 4px 0 19px 60px;
+        padding: 10px;
         background-color: $black-10;
+        cursor: pointer;
       }
       &-bottom {
-        width: 400px;
-        border: 1px solid red;
+        margin-left: 54px;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        > ul:nth-child(1),
+        ul:nth-child(2) {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          display: flex;
+          > li {
+            width: 90px;
+            height: 17px;
+            font-size: 11px;
+            font-weight: 600;
+            line-height: 1.5;
+            letter-spacing: -0.22px;
+            color: $black-100;
+          }
+          > li:nth-child(1) {
+            width: 130px;
+          }
+        }
+        > ul:nth-child(2) {
+          > li {
+            color: $black-90;
+            font-weight: normal;
+          }
+        }
       }
     }
   }

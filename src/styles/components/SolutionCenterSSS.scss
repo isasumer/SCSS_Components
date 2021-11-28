@@ -1,0 +1,37 @@
+@import "../abstracts/variables";
+.sss {
+  &-container {
+    border: 1px solid blue;
+    width: 1440px;
+    height: 770px;
+    margin: 32px 0 2px;
+    padding: 0 126px 0 0;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
+    // background-color: $white;
+  }
+  &-header {
+    border: 1px solid red;
+    width: 220px;
+    height: 42px;
+    margin: 72px 85px 24px 120px;
+    font-size: 28px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: 0.33px;
+    color: $black-100;
+  }
+  &-wrapper {
+    border: 1px solid red;
+    display: flex;
+    &-left {
+      border: 1px solid black;
+      width: 20%;
+    }
+    &-right {
+      border: 1px solid rgb(25, 0, 255);
+      width: 60%;
+    }
+  }
+}
