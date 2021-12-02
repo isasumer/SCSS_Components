@@ -123,6 +123,10 @@
       width: 448px;
       height: 40px;
     }
+    &-solution-center {
+      width: 920px;
+      height: 48px;
+    }
     &-x-large {
       width: 568px;
       height: 60px;
@@ -165,6 +169,11 @@
     &-discount {
       width: 100%;
       margin: 0 16px;
+      font-size: 16px;
+    }
+    &-solution-center {
+      width: 100%;
+      margin: 0 10px;
       font-size: 16px;
     }
     &-large {

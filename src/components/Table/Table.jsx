@@ -38,11 +38,6 @@ const Table = ({
     (e) => {
       const gridColumns = __columns.map((col, i) => {
         if (i === activeIndex) {
-          console.log("client:", e.clientX);
-          console.log(
-            "col.colRef?.current?.offsetLeft:",
-            col.colRef?.current?.offsetLeft
-          );
           const width = e.clientX - col.colRef?.current?.offsetLeft;
           console.log(width);
           if (width >= minCellWidth) {

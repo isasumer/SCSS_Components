@@ -6,14 +6,14 @@ import searchIcon from "../assets/inputsIcons/search.png";
 import chevronLeft from "../assets/tableIcon/circle-back-copy.png";
 import chevronRight from "../assets/tableIcon/circle-back-copy-2.png";
 import Table from "../components/Table/Table";
-import "../styles/pages/tablePage.scss";
 import tabledata from "../assets/tabledata.json";
 import Buttons from "../components/Buttons";
 import Inputs from "../components/Inputs";
 import Drawer from "../components/Drawer";
 import classnames from "classnames";
-import "../styles/components/Drawer.scss";
 import MakeDiscount from "../components/MakeDiscount";
+import "../styles/pages/tablePage.scss";
+import "../styles/components/Drawer.scss";
 function getTableData() {
   const columns = [
     {
@@ -134,12 +134,12 @@ const TablePage = () => {
             <img
               src={chevronLeft}
               alt="chevronLeft"
-              onClick={() => scroll(-200)}
+              onClick={() => scroll(-150)}
             />
             <img
               src={chevronRight}
               alt="chevronRight"
-              onClick={() => scroll(+200)}
+              onClick={() => scroll(+150)}
             />
           </div>
         </div>

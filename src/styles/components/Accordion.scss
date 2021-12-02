@@ -1,0 +1,51 @@
+@import "../abstracts//variables";
+
+.accordion-item {
+  border-radius: 8px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.08);
+  border: solid 1px $black-30;
+  margin: 0;
+  padding: 0 12px;
+  &-faq {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 900px;
+    height: 48px;
+    background-color: white;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: -0.28px;
+    color: $black-100;
+    cursor: pointer;
+    :hover {
+      color: $orange;
+    }
+    > img {
+      width: 32px;
+      height: 32px;
+    }
+  }
+  &-answer-wrapper {
+    height: 0;
+    overflow: hidden;
+    transition: all ease 0.8s;
+    &-active {
+      height: 100px;
+    }
+    // margin-bottom: 4px;
+  }
+  &-answer {
+    width: 856px;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.32px;
+    color: $black-90;
+  }
+  // &-active {
+  //   // width: 105%;
+  //   padding: 20px;
+  // }
+}
