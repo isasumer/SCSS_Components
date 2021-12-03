@@ -30,21 +30,19 @@ const SolutionCenterSSS = () => {
   }, []);
 
   useEffect(() => {
-    const handleIntoView = (id) => {
-      setScrollViewId(id);
-      const element = document.getElementById(`${scrollViewId}`);
-      element?.scrollIntoView({ behavior: "smooth" });
-    };
+    setScrollViewId(scrollViewId);
+    const element = document.getElementById(`${scrollViewId}`);
+    element?.scrollIntoView({ behavior: "smooth" });
 
-    // const changeScrollViewCategoryColor = () => {
-    //   const change = document.getElementById(`category-${scrollViewId}`);
-    //   change.classList.add("makeFocus");
-    // };
-    // changeScrollViewCategoryColor();
-    handleIntoView();
+    const changeRemove = document.getElementsByClassName("makeFocus")[0];
+    changeRemove?.classList.remove("makeFocus");
+    const change = document.getElementById(`category-${scrollViewId}`);
+
+    change?.classList.toggle("makeFocus");
   }, [scrollViewId]);
 
   const onToggle = (e, id) => {
+    setSearchData("");
     const selectedId = data.filter(
       (element) => element.parentCategoryId === id
     )[0]?.categories[0].categoryId;
@@ -63,19 +61,11 @@ const SolutionCenterSSS = () => {
 
       return selectedCategory.forEach((item) => {
         const makeVisible = document.getElementById(`category-${item}`);
-        makeVisible.classList.toggle("active");
+        makeVisible?.classList.toggle("active");
       });
     };
 
     selectedCategoryMakeVisible(id);
-
-    // selectedCategory.forEach((el) => el.classList.toggle("active"));
-    // selectedCategory.classList.toggle("active");
-    // e.target.parentElement.nextSibling.childNodes[1].childNodes.forEach(
-    //   (el) => {
-    //     el.classList.toggle("active");
-    //   }
-    // );
   };
   const handleToggle = (id) => {
     if (clicked === id) {
@@ -86,14 +76,15 @@ const SolutionCenterSSS = () => {
 
   function getSearchedData() {
     if (searchData) {
-      console.log(searchData);
       return data.filter((item) =>
-        JSON.stringify(item).toLowerCase()?.includes(searchData.toLowerCase())
+        JSON.stringify(item.categories.map((el) => el.faqs))
+          .toLowerCase()
+          ?.includes(searchData.toLowerCase())
       );
     }
     return data;
   }
-  console.log(data);
+
   return (
     <div className="sss-container">
       <div className="sss-header">Merak Edilenler</div>
@@ -172,33 +163,73 @@ const SolutionCenterSSS = () => {
               ]}
             />
           </div>
-          <div className="sss-wrapper-right-faq">
-            {getSearchedData()
-              .filter(
-                (element) => element.parentCategoryId === selectedCategory
-              )[0]
-              ?.categories.map((el) => (
-                <div>
-                  <h3
-                    id={`${el.categoryId}`}
-                    className="sss-wrapper-right-faq-name"
-                  >
-                    {el.categoryName}
-                  </h3>
-                  <ul className="sss-wrapper-right-faq-accordion">
-                    {el.faqs.map((faq, index) => (
-                      <Accordion
-                        onToggle={() => handleToggle(faq.id)}
-                        active={clicked === faq.id}
-                        key={index}
-                        faq={faq.name}
-                        answer={answer}
-                      />
-                    ))}
-                  </ul>
-                </div>
-              ))}
-          </div>
+          {searchData ? (
+            <div className="sss-wrapper-right-faq">
+              {getSearchedData().map((element) =>
+                element.categories
+                  .filter((item) =>
+                    JSON.stringify(item)
+                      .toLowerCase()
+                      ?.includes(searchData.toLowerCase())
+                  )
+                  .map((el) => (
+                    <div>
+                      <h3
+                        id={`${el.categoryId}`}
+                        className="sss-wrapper-right-faq-name"
+                      >
+                        {el.categoryName}
+                      </h3>
+                      <ul className="sss-wrapper-right-faq-accordion">
+                        {el.faqs
+                          .filter((item) =>
+                            JSON.stringify(item)
+                              .toLowerCase()
+                              ?.includes(searchData.toLowerCase())
+                          )
+                          .map((faq, index) => (
+                            <Accordion
+                              onToggle={() => handleToggle(faq.id)}
+                              active={clicked === faq.id}
+                              key={index}
+                              faq={faq.name}
+                              answer={answer}
+                            />
+                          ))}
+                      </ul>
+                    </div>
+                  ))
+              )}
+            </div>
+          ) : (
+            <div className="sss-wrapper-right-faq">
+              {getSearchedData()
+                .filter(
+                  (element) => element.parentCategoryId === selectedCategory
+                )[0]
+                ?.categories.map((el) => (
+                  <div>
+                    <h3
+                      id={`${el.categoryId}`}
+                      className="sss-wrapper-right-faq-name"
+                    >
+                      {el.categoryName}
+                    </h3>
+                    <ul className="sss-wrapper-right-faq-accordion">
+                      {el.faqs.map((faq, index) => (
+                        <Accordion
+                          onToggle={() => handleToggle(faq.id)}
+                          active={clicked === faq.id}
+                          key={index}
+                          faq={faq.name}
+                          answer={answer}
+                        />
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+            </div>
+          )}
         </div>
       </div>
     </div>

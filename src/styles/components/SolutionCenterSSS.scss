@@ -66,11 +66,6 @@
         &-subcategory {
           display: flex;
           margin: 0 0 12px 12px;
-          &-li {
-            li:nth-child(1) {
-              color: rgb(255, 96, 0);
-            }
-          }
           &-line {
             display: block;
             cursor: col-resize;
@@ -78,6 +73,7 @@
             border-left: 1px solid rgba(128, 128, 128, 0.472);
           }
           &-item {
+            padding: 0px 5px;
             max-height: 0px;
             overflow: hidden;
             // transition: all 1.5s ease;
@@ -88,7 +84,7 @@
             font-weight: 400;
 
             &-active {
-              transition: all 1.5s ease;
+              transition: max-height 1.5s ease;
               max-height: 500px;
             }
             > span:hover {
@@ -131,5 +127,7 @@
   color: rgb(0, 0, 0);
 }
 .makeFocus {
-  background-color: orange;
+  background-color: rgba(255, 96, 0, 0.08);
+  color: rgb(255, 96, 0);
+  border-radius: 8px;
 }
