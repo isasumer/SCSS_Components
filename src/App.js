@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        {/* <Header /> */}
+        <Header />
         <Switch>
           <Route path="/buttons" component={ButtonPage} />
           <Route path="/tab-menu" component={TabMenu} />

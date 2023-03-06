@@ -8,10 +8,10 @@ import SolutionCenterFooter from "../components/SolutionCenter/SolutionCenterFoo
 const SolutionCenterPage = () => {
   return (
     <div className="solution-container">
-      <SolutionCenterHeader />
+      {/* <SolutionCenterHeader />
       <SolutionCenterTopContent />
       <SolutionCenterSSS />
-      <SolutionCenterFooter />
+      <SolutionCenterFooter /> */}
     </div>
   );
 };
